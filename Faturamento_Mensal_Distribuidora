@@ -1,0 +1,18 @@
+def percentual (estado, total):
+    return round(((100*estado)/total),2)
+
+sp = 67836.43
+rj = 36678.66
+mg = 29229.88
+es = 27165.48
+outros = 19849.53
+
+total = sp + rj + mg + es + outros
+
+
+print("A porcentagem de faturamento em cada estado foi:")
+print("SP:" + str(percentual(sp, total)) + '%')
+print("RJ:" + str(percentual(rj, total)) + '%')
+print("MG:" + str(percentual(mg, total)) + '%')
+print("ES:" + str(percentual(es, total)) + '%')
+print("E a porcentagem de outros faturamentos:" + str(percentual(outros, total)) + '%')

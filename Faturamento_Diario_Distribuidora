@@ -1,0 +1,48 @@
+# Importando biblioteca para utilizar arquivos JSON
+import json
+
+# Abrindo o diretório do arquivo JSON
+f = open('answers/assignment 3/dados.json')
+
+# Carregando os dados do arquivo JSON e salvando num dicionário
+dados = json.load(f)
+
+# Declarando variáveis
+aux = 0
+maior = 0
+menor = 0
+soma = 0
+media = 0
+
+
+for dia in dados:
+
+    if (dia['valor']) != 0:
+        aux = dia['valor']
+
+        if (aux > maior):
+            maior = aux
+
+        if(menor == 0):
+            menor = aux
+        elif (aux < menor):
+            menor = aux
+
+        soma += dia['valor']
+
+print('O maior faturamento foi de R$ ' + str(maior) + '.')
+print('O menor faturamento foi de R$ ' + str(menor) + '.')
+
+
+#obtendo média
+media = soma / len(dados)
+
+diaFaturamento = ''
+
+for i in dados:
+    if (i['valor']) != 0:
+        # Caso o valor do faturamento do dia for maior que a média, salva o número do dia na String
+        if (i['valor']) > media:
+           diaFaturamento += (str(i['dia']) + ' ')
+        
+print('o total de dias que o faturamento do dia foi maior que a média é' + diaFaturamento)
